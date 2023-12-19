@@ -1,17 +1,3 @@
-<?php
-    function password_generator($lenght) {
-        $caratteriPossibili = '!"#$%&\()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
-        $password="";
-        for($i=0; $i<$lenght; $i++) {
-            $password = $password . $caratteriPossibili[rand(0,strlen($caratteriPossibili)-1)];
-        }
-
-        return $password;
-    }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +8,7 @@
 </head>
 <body>
     <?php
+        include 'functions.php';
         $password_lenght = $_GET["password_lenght"] ?? "0";     
         $password_lenght = intval($password_lenght); 
         $chiave = password_generator($password_lenght);
